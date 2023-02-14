@@ -6,7 +6,12 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<style>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0 auto;
+			}
+
 			body {
 				background: #fff;
 			}
@@ -45,7 +50,7 @@
 
 				a:hover {
 					text-decoration: none;
-					color: #e0555a !important;
+					color: grey !important;
 					border-bottom-color: transparent;
 				}
 
@@ -62,11 +67,16 @@
 				margin: 0 0 2em 0;
 			}
 
+			h1 {
+				padding-top: 16px;
+				padding-left: 16px;
+				padding-bottom: 16px;
+			}
+
 			h1, h2, h3, h4, h5, h6 {
 				color: #545454;
 				font-weight: 700;
 				line-height: 1em;
-				margin: 0 0 1em 0;
 				letter-spacing: -0.01em;
 			}
 
@@ -75,73 +85,76 @@
 					text-decoration: none;
 				}
 
-
 			h4 {
 				font-size: 1.1em;
 				line-height: 1.5em;
 			}
 
-			.align-left {
-				text-align: left;
+			.footer, .header-logo {
+				background-color: #d3d3d3;
 			}
 
-			.align-center {
+			.bar, .banner, .footer {
+				padding-top: 16px;
+				padding-left: 16px;
+				padding-bottom: 16px;
+			}
+
+			.footer {
 				text-align: center;
 			}
-
-			.align-right {
-				text-align: right;
-			}
-
 		</style>
 	</head>
 	<body class="landing">
 
 		<!-- Header -->
 			<header id="header" class="alt skel-layers-fixed">
-				<h1><a href="index.html">muzStore</a></h1>
-				<nav id="nav">
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li>
-							<a href="catalog.html" class="icon fa-angle-down">Catalog</a>
-							<ul>
-								<li><a href="left-sidebar.html">some..</a></li>
-								<li><a href="right-sidebar.html">some..</a></li>
-								<li><a href="no-sidebar.html">some..</a></li>
-							</ul>
-						</li>
-						<li><a href="about.html">About</a></li>
-					</ul>
-				</nav>
+				<div class="header-logo">
+					<h1><a href="/">muzStore</a></h1>
+					<hr>
+				</div>
+				<div class="bar">
+					<h3>Main</h3>
+					<nav id="nav">
+						<ul>
+							<li><a href="/">Home</a></li>
+							<li>
+								<a href="/catalog/" class="icon fa-angle-down">Catalog</a>
+								<ul>
+									<li><a href="#">some..</a></li>
+									<li><a href="#">some..</a></li>
+									<li><a href="#">some..</a></li>
+								</ul>
+							</li>
+							<li><a href="/contacts/">Contacts</a></li>
+						</ul>
+					</nav>
+				</div>
 			</header>
 
 		<!-- Banner -->
-			<section id="banner">
+			<section class="banner">
 				<div class="inner">
 					<h4>Address</h4>
-					<p>Saint-P. nevskiy 1. <a href="about.html" class="button scrolly">Learn More</a></p>
+					<p>Saint-P. nevskiy 1. <a href="/contacts/" class="button scrolly">Learn More</a></p>
 
 				</div>
 			</section>
 
 
 		<!-- Footer -->
-			<footer id="footer">
+			<footer class="footer">
 
 				<span><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></span>
 				<span><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></span>
 				<span><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></span>
-				<span><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></span>
-				<span><a href="#" class="icon fa-envelope"><span class="label">Envelope</span></a></span>
-
 
 				<div>
 					today {{ date }}
 				</div>
 
 				<span class="copyright">
-					&copy; Copyright. All rights reserved. Design by <a href="http://www.html5webtemplates.co.uk">Responsive Web Templates</a>
+					&copy; Copyright. All rights reserved.
 				</span>
 			</footer>
 	</body>
