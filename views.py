@@ -11,6 +11,6 @@ class Catalog:
         return '200 OK', render('catalog.html')
 
 
-class About:
+class Contacts:
     def __call__(self, requests):
-        return '200 OK', render('about.html')
+        return '200 OK', render('contacts.html')
