@@ -6,12 +6,18 @@
 	{% include "inc-menu.html" %}
 {% endblock %}
 {% block body %}
-	<section class="banner">
-		<div class="inner">
-			<h4>Address</h4>
-			<p>Saint-P. nevskiy 1. <a href="/contacts/" class="button scrolly">Learn More</a></p>
-		</div>
-	</section>
+	<div class="for-all-new">
+		<a href="/create-category/">Create new category</a>
+	</div>
+	<div class="for-all-new">
+		<h4>Categories list</h4>
+		{% for item in objects_list %}
+		<li>
+			{{ item.name }} <span>(courses count: {{ item.course_count() }})</span>
+			<a href="/courses-list/?id={{item.id}}">Show curses list</a>
+		</li>
+		{% endfor %}
+	</div>
 {% endblock %}
 {% block footer %}
 	{% include "inc-footer.html" %}

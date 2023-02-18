@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block style %}
+	{% include "inc-style.html" %}
+{% endblock %}
+{% block menu %}
+	{% include "inc-menu.html" %}
+{% endblock %}
+{% block body %}
+    <div class="for-all-new">
+        <h4>Create category</h4>
+        <form method="post">
+            <input type="text" name="name" placeholder="Название">
+            <button type="submit">Save and return</button>
+        </form>
+    </div>
+{% endblock %}
+{% block footer %}
+	{% include "inc-footer.html" %}
+{% endblock %}

@@ -26,6 +26,7 @@ class Framework:
         requests = {}
 
         method = environ['REQUEST_METHOD']
+        requests['method'] = method
         if method == 'GET':
             request_params = GetRequests().get_params(environ)
             requests['request_params'] = self.decode_get_params(request_params)
