@@ -6,18 +6,25 @@
 	{% include "inc-menu.html" %}
 {% endblock %}
 {% block body %}
+	<section class="banner">
+		<div class="inner">
+			<h4>Address</h4>
+			<p>Saint-P. nevskiy 1</p>
+		</div>
+	</section>
+
 	<form action="" method="post" class="from_con">
 		<fieldset>
-			<legend>Напишите нам</legend>
+			<legend>Send us</legend>
 			<p>
-				 <label class="title" for="email">Ваш email:</label>
-				 <input type="text" name="email" id="email">
+				<label class="title" for="email">Email:</label>
+				<input type="text" name="email" id="email">
 			</p>
 			<p>
-				<p><label class="title" for="message">Сообщение:</label></p>
+				<p><label class="title" for="message">Message:</label></p>
 				<textarea name="message" id="message"></textarea>
 			</p>
-			<div class="submit"><input type="submit" value="Регистрация" /></div>
+			<div class="submit"><input type="submit" value="Send" /></div>
 		</fieldset>
 	</form>
 {% endblock %}

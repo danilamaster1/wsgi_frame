@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block style %}
+	{% include "inc-style.html" %}
+{% endblock %}
+{% block menu %}
+	{% include "inc-menu.html" %}
+{% endblock %}
+{% block body %}
+    <div class="for-all-new">
+        <a href="/courses-list/?id={{id}}">Main page</a>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="for-all-new">
+        <h4>Create a course for a category "{{name}}"</h4>
+        <form method="post">
+            <input type="text" name="name" placeholder="Название">
+            <button type="submit">Save and return to course list</button>
+        </form>
+    </div>
+{% endblock %}
+{% block footer %}
+	{% include "inc-footer.html" %}
+{% endblock %}

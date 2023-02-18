@@ -1,4 +1,4 @@
-from views import Index, Catalog, Contacts
+from views import Index, Programs, Contacts, CoursesList, CreateCourse, CreateCategory, CategoryList, CopyCourse
 from datetime import date
 
 
@@ -10,7 +10,12 @@ fronts = [date_front]
 
 routes = {
     '/': Index(),
-    '/catalog/': Catalog(),
+    '/programs/': Programs(),
     '/contacts/': Contacts(),
+    '/courses-list/': CoursesList(),
+    '/create-course/': CreateCourse(),
+    '/create-category/': CreateCategory(),
+    '/category-list/': CategoryList(),
+    '/copy-course/': CopyCourse()
 }
 

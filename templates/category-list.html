@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block style %}
+	{% include "inc-style.html" %}
+{% endblock %}
+{% block menu %}
+	{% include "inc-menu.html" %}
+{% endblock %}
+{% block body %}
+	<div class="for-all-new">
+		<a href="/">Main Page</a>
+
+		<h4>categories list</h4>
+		<ul>
+			{% for item in objects_list %}
+			<li>
+				{{item.name}} <span>(courses count: {{item.course_count()}})</span>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="for-all-new">
+		<li><a href="/courses-list/">Courses list</a></li>
+		<li><a href="/create-course/">Create course</a></li>
+	</div>
+{% endblock %}
+{% block footer %}
+	{% include "inc-footer.html" %}
+{% endblock %}
