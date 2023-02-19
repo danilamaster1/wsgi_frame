@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 class SingletonByName(type):
 
     def __init__(cls, name, bases, attrs, **kwargs):
@@ -22,6 +25,8 @@ class Logger(metaclass=SingletonByName):
     def __init__(self, name):
         self.name = name
 
-    @staticmethod
-    def log(text):
-        print('log--->', text)
+    def log(self, text):
+        with open(f'patterns/{self.name}.log', 'a', encoding='utf-8') as f:
+            f.write(f'{datetime.now().strftime("%d-%m-%Y %H:%M")}: {text}\n')
+
+

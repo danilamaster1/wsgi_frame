@@ -23,13 +23,14 @@ class Contacts:
 
 class CoursesList:
     def __call__(self, requests):
-        logger.log('course_list')
+        logger.log('open course_list')
         try:
             category = site.find_category_by_id(int(requests['request_params']['id']))
             return '200 OK', render('courses-list.html',
                                     objects_list=category.courses,
                                     name=category.name, id=category.id)
         except KeyError:
+            logger.log('KeyError courses list')
             return '200 OK', 'No courses have been added yet'
 
 
@@ -63,8 +64,10 @@ class CreateCourse:
                                         name=category.name,
                                         id=category.id)
             except KeyError:
+                logger.log('KeyError create course')
                 return '200 OK', 'No categories have been added yet'
             except ValueError:
+                logger.log('ValueError category_id indefined')
                 return '200 OK', 'No categories have been added yet'
 
 
@@ -94,7 +97,7 @@ class CreateCategory:
 
 class CategoryList:
     def __call__(self, requests):
-        logger.log('categories list')
+        logger.log('open categories list')
         return '200 OK', render('category-list.html',
                                 objects_list=site.categories)
 
@@ -118,4 +121,5 @@ class CopyCourse:
                                     name=new_course.category.name)
 
         except KeyError:
+            logger.log('KeyError copy')
             return '200 OK', 'No courses have been added yet'
