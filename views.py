@@ -1,38 +1,50 @@
 from danni_framework.templator import render
 from patterns.creational_patterns import Engine
 from patterns.logger_singleton import Logger
+from patterns.structural_patterns import AppRoute, Debug
 
 site = Engine()
 logger = Logger('main')
 
+routes = {}
 
+
+@AppRoute(routes=routes, url='/')
 class Index:
+    @Debug(name='Index')
     def __call__(self, requests):
         return '200 OK', render('index.html', date=requests.get('date', None), objects_list=site.categories)
 
 
+@AppRoute(routes=routes, url='/programs/')
 class Programs:
+    @Debug(name='Programs')
     def __call__(self, requests):
         return '200 OK', render('programs.html', date=requests.get('date', None))
 
 
+@AppRoute(routes=routes, url='/contacts/')
 class Contacts:
+    @Debug(name='Contacts')
     def __call__(self, requests):
         return '200 OK', render('contacts.html', date=requests.get('date', None))
 
 
+@AppRoute(routes=routes, url='/courses-list/')
 class CoursesList:
     def __call__(self, requests):
-        logger.log('course_list')
+        logger.log('open course_list')
         try:
             category = site.find_category_by_id(int(requests['request_params']['id']))
             return '200 OK', render('courses-list.html',
                                     objects_list=category.courses,
                                     name=category.name, id=category.id)
         except KeyError:
+            logger.log('KeyError courses list')
             return '200 OK', 'No courses have been added yet'
 
 
+@AppRoute(routes=routes, url='/create-course/')
 class CreateCourse:
     category_id = -1
 
@@ -63,11 +75,14 @@ class CreateCourse:
                                         name=category.name,
                                         id=category.id)
             except KeyError:
+                logger.log('KeyError create course')
                 return '200 OK', 'No categories have been added yet'
             except ValueError:
+                logger.log('ValueError category_id indefined')
                 return '200 OK', 'No categories have been added yet'
 
 
+@AppRoute(routes=routes, url='/create-category/')
 class CreateCategory:
     def __call__(self, requests):
         if requests['method'] == 'POST':
@@ -92,13 +107,15 @@ class CreateCategory:
                                     categories=categories)
 
 
+@AppRoute(routes=routes, url='/category-list/')
 class CategoryList:
     def __call__(self, requests):
-        logger.log('categories list')
+        logger.log('open categories list')
         return '200 OK', render('category-list.html',
                                 objects_list=site.categories)
 
 
+@AppRoute(routes=routes, url='/copy-course/')
 class CopyCourse:
     def __call__(self, requests):
         request_params = requests['request_params']
@@ -118,4 +135,5 @@ class CopyCourse:
                                     name=new_course.category.name)
 
         except KeyError:
+            logger.log('KeyError copy')
             return '200 OK', 'No courses have been added yet'

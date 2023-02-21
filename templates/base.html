@@ -8,8 +8,10 @@
         {% block style %} {% endblock %}
     </head>
     <body>
-        {% block menu %}    {% endblock %}
-        {% block body %}    {% endblock %}
+        <div class="container">
+            {% block menu %}    {% endblock %}
+            {% block body %}    {% endblock %}
+        </div>
     </body>
     <footer class="footer">
         {% block footer %}    {% endblock %}

@@ -4,8 +4,15 @@
 			padding: 0 auto;
 		}
 
+		html {
+		    height: 100%;
+		}
+
 		body {
 			background: #fff;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
 		}
 
 			body.is-loading * {
@@ -91,7 +98,7 @@
 			padding-bottom: 16px;
 		}
 
-		.banner, .footer, .form_con {
+		.banner, .form_con {
 			padding-top: 16px;
 			padding-left: 16px;
 			padding-bottom: 16px;
@@ -111,11 +118,21 @@
 
 		.footer {
 			text-align: center;
+			flex: 0 0 auto;
 		}
 
 		.for-all-new {
 		    padding-top: 16px;
 			padding-left: 24px;
 			padding-bottom: 16px;
+		}
+
+		.bar, .footer {
+		    padding-top: 16px;
+			padding-bottom: 16px;
+		}
+
+		.container {
+		    flex: 1 0 auto;
 		}
 </style>
