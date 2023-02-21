@@ -27,6 +27,6 @@ class Logger(metaclass=SingletonByName):
 
     def log(self, text):
         with open(f'patterns/{self.name}.log', 'a', encoding='utf-8') as f:
-            f.write(f'{datetime.now().strftime("%d-%m-%Y %H:%M")}: {text}\n')
+            f.write(f'{datetime.now().strftime("%d-%m-%Y %H:%M")} --> {text}\n')
 
 
