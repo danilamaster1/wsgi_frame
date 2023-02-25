@@ -6,11 +6,16 @@
 	{% include "inc-menu.html" %}
 {% endblock %}
 {% block body %}
+	<div class="for-all-new">
+		<li>
+			<a href="/student-list/">Student list</a>
+		</li>
+	</div>
     <div class="for-all-new">
-        <h4>Create category</h4>
+        <h1>Create student</h1>
         <form method="post">
-            <input type="text" name="name" placeholder="Название">
-            <button type="submit">Save and return</button>
+            <input type="text" name="name" placeholder="Имя">
+            <button type="submit">Save</button>
         </form>
     </div>
 {% endblock %}

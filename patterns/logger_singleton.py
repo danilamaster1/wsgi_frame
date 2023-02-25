@@ -1,10 +1,10 @@
 from datetime import datetime
-
+from behavioral_patterns import FileWriter
 
 class SingletonByName(type):
 
     def __init__(cls, name, bases, attrs, **kwargs):
-        super().__init__(name, bases, attrs)
+        super().__init__(name, bases, attrs, **kwargs)
         cls.__instance = {}
 
     def __call__(cls, *args, **kwargs):
@@ -22,11 +22,12 @@ class SingletonByName(type):
 
 class Logger(metaclass=SingletonByName):
 
-    def __init__(self, name):
+    def __init__(self, name, writer=FileWriter()):
         self.name = name
+        self.writer = writer
 
     def log(self, text):
-        with open(f'patterns/{self.name}.log', 'a', encoding='utf-8') as f:
-            f.write(f'{datetime.now().strftime("%d-%m-%Y %H:%M")} --> {text}\n')
+        text = f'log---> {text}'
+        self.writer.write(text)
 
 

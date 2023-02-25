@@ -14,7 +14,9 @@
         </div>
     </body>
     <footer class="footer">
-        {% block footer %}    {% endblock %}
+        {% block footer %}
+	        {% include "inc-footer.html" %}
+        {% endblock %}
     </footer>
 </html>
 
